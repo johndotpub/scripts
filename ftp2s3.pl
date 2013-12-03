@@ -21,7 +21,8 @@ GetOptions(
     "skipftp",
     "deletesource",
     "s3delmissing",
-    "cleanup");
+    "cleanup",
+    "info");
 
 # Create Job Timestamp
 $timestamp = time();
@@ -137,6 +138,13 @@ else {
 $timeout = "600";
 $lftpopt = "set net:timeout $timeout; set xfer:verify yes; set xfer:verify-command /usr/share/lftp/verify-file";
 $lftpcmd = "lftp -e '$lftpopt; mirror $mirroropt $opt_source $opt_target; exit' -u $opt_user,$opt_pass $opt_host";
+
+if ($opt_info) {
+        print STDOUT "LFTP Options: $lftpopt\n";
+        print STDOUT "LFTP CMD: $lftpcmd\n\n";
+        print STDOUT "s3 CMD: $s3cmd\n";
+        exit;
+}
 
 # Cleanup
 if ($opt_cleanup) {
