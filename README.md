@@ -21,6 +21,15 @@ configs.
 
 An automated script to locally mirror files from an FTP host and then archive to Amazon s3 after X days.
 
+## github-repository-list.py
+```
+python github-repository-list.py
+```
+
+**REQUIRED** `pip install github3.py`
+
+A script to pull a list of all repositories for an organization. 2FA is supported!
+
 ## s3cmd-du.pl
 ```
 ./s3cmd-du.pl s3://BUCKET
