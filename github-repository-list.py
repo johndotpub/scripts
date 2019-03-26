@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+
 """ Print all repositories for a GitHub organization.
 
 The github3.py module is required::
@@ -13,7 +14,6 @@ Advanced use.  This will actually clone all the repos for a
 GitHub organization or user::
 
     $ for url in $(python list-all-repos.py); do git clone $url; done
-
 """
 
 import github3
